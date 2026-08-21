@@ -1,0 +1,42 @@
+syntax ="proto3";
+
+message Order {
+    string order_id=1;
+    string user_id=2;
+    double amount=3;
+    string status=4;
+}
+
+message OrderRequest{
+ string order_id=1;
+
+}
+
+message CreateOrderRequest {
+  string user_id = 1;
+  double amount = 2;
+}
+
+service OrderService{
+    rpc GetOrder(OrderRequest) returns(Order);
+    rpc WatchOrderStatus(OrderRequest) returns(stream Order);  
+    rpc CreateOrder(CreateOrderRequest)returns(Order);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
