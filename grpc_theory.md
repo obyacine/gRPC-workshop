@@ -1,5 +1,5 @@
 # gRPC — Theoretical Document
-### IT Blackout — MicroClub | Yacine Ould Braham
+
 
 ---
 
