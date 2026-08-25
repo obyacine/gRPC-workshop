@@ -119,12 +119,12 @@ On the server side, the equivalent is called a **Servicer** — a base class the
 
 gRPC offers 4 ways to exchange messages, all built on HTTP/2 multiplexing:
 
-| Mode | Description | Example in the project |
+| Mode | Description | Real-world example |
 |---|---|---|
-| **Unary** | 1 request, 1 response | `GetOrder`, `CreateOrder` |
-| **Server streaming** | 1 request, multiple responses over time | `WatchOrderStatus` |
-| **Client streaming** | Multiple requests, 1 final response | — |
-| **Bidirectional streaming** | Both sides stream independently | — |
+| **Unary** | 1 request, 1 response | Looking up a user's profile by ID |
+| **Server streaming** | 1 request, multiple responses over time | Live stock price updates after subscribing once |
+| **Client streaming** | Multiple requests, 1 final response | Uploading a large file in chunks, server confirms once fully received |
+| **Bidirectional streaming** | Both sides stream independently | A live chat, where both sides send messages at any time |
 
 **The principle behind streaming:** the call stays open, and multiple messages travel over it over time — instead of a single fixed round trip. In `WatchOrderStatus`, the client sends a single initial request; it's the **server** that sends a new message every time it detects a status change on its side.
 
